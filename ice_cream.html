@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>big_ice_cream</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    #title {
+      margin: 30px 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      font-size: 18px;
+    }
+    #title-star {
+      margin-left: auto;
+    }
+    #title-inbox {
+      background-color: #eee;
+      font-size: 10px;
+      padding: 0px 8px;
+    }
+    .separator {
+      width: 100%;
+      height: 1px;
+      background-color: #eeeeee;
+    }
+    #sender {
+      display: flex;
+      flex-direction: row;
+      margin: 15px 0;
+      width: 90vw;
+    }
+    #sender-avatar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: lightblue;
+      color: #ffffff;
+      font-weight: 100;
+      font-size: 18px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-right: 10px;
+    }
+    #sender-info {
+      display: block;
+      max-width: calc(100vw - 140px);
+      flex-grow: 1;
+      line-height: 20px;
+    }
+    #sender-email {
+      display: inline-block;
+      width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 15px;
+    }
+    #sender-to {
+      font-size: 14px;
+      color: #999999;
+    }
+    #sender-date {
+      font-size: 14px;
+      color: #999999;
+    }
+    #sender-show-details {
+      font-size: 14px;
+      color: #4286f4;
+    }
+    #sender-actions {
+      margin-left: auto;
+      display: flex;
+      flex-direction: row;
+      color: #333333;
+      width: 50px;
+      justify-content: space-evenly;
+      flex-shrink: 0;
+    }
+    #sender-actions > i {
+      font-size: 20px !important;
+    }
+    #mail {
+      font-size: 11px;
+    }
+    img {
+      width: 100%;
+    }
+    body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    main {
+      flex: 1 0 auto;
+    }
+    .actionbutton {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      color: #666666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="red">
+      <a href="#" style="margin-left: 10px;" class="brand-logo left" id="back"><i class="material-icons">arrow_back</i></a>
+      <ul class="right">
+        <li><a href="#"><i class="material-icons">archive</i></a></li>
+        <li><a href="#"><i class="material-icons">delete</i></a></li>
+        <li><a href="#"><i class="material-icons">email</i></a></li>
+        <li><a href="#" style="padding-left: 0px;"><i class="material-icons">more_vert</i></a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <p id="title">
+        <span>McDonald’s</span>
+        &nbsp;
+        <span id="title-inbox">Inbox</span>
+        <span id="title-star"><i class="material-icons">star_border</i></span>
+      </p>
+    </div>
+    <div class="separator"></div>
+    <div class="container">
+      <div id="sender">
+        <span id="sender-avatar">B</span>
+        <div id="sender-info">
+          <span id="sender-email">Badanie.Satysfakcji@ankieta.mcdonalds.pl</span><br />
+          <span id="sender-to">do mcd</span><br />
+          <span id="sender-date">Dzisiaj</span>&nbsp;<span id="sender-show-details">Pokaż szczegóły</span>
+        </div>
+        <div id="sender-actions">
+          <i class="material-icons">reply</i>
+          <i class="material-icons">more_vert</i>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div id="mail">
+        Dziękujemy za udział w badaniu. Przesyłamy wybrany przez Pana/ią kupon.<br />
+        DATA WYDANIA: <script>document.write(new Date().toJSON().split('T')[0].split('-').reverse().join('-'))</script>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        UNIKALNY KOD:
+        <script>
+              document.write('06y7' + Math.random().toString(36).substr(2, 4) + Math.random().toString(36).substr(2, 4))
+        </script>
+        <br />
+        <img src="https://echo.gfk.com/static/shared/gsc/echo/McDonalds/Poland/coupons/21_08_17_big_ice_cream.png">
+      </div>
+    </div>
+  </main>
+  <footer class="page-footer white">
+    <div class="container">
+      <div class="row">
+        <div class="col s4 actionbutton">
+          <i class="material-icons">reply</i>
+          Odpowiedz
+        </div>
+        <div class="col s4 actionbutton">
+          <i class="material-icons">reply_all</i>
+          Odpowiedz<br />
+          wszystkim
+        </div>
+        <div class="col s4 actionbutton">
+          <i class="material-icons">forward</i>
+          Przekaż
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script>
+    document.querySelector('#back').addEventListener('click', e => {
+      // https://developers.google.com/web/fundamentals/native-hardware/fullscreen/
+      const doc = window.document;
+      const docEl = doc.documentElement;
+
+      const requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
+      const cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
+
+      if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+        requestFullScreen.call(docEl);
+      } else {
+        cancelFullScreen.call(doc);
+      }
+    })
+  </script>
+</body>
+</html>
