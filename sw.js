@@ -9,6 +9,8 @@ self.addEventListener('install', e => {
         `/index.html`,
         `/hamburger.html`,
         `/ice_cream.html`,
+        `/coupons/hamburger.png`,
+        `/coupons/big_ice_cream.png`,
         `/materialize.min.css`,
         `/pwacompat.min.js`
       ]).then(() => self.skipWaiting())
