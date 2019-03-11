@@ -7,107 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>big_ice_cream</title>
   <link rel="stylesheet" href="/materialize.min.css">
+  <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <style>
-    #title {
-      margin: 30px 0;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      font-size: 18px;
-    }
-    #title-star {
-      margin-left: auto;
-    }
-    #title-inbox {
-      background-color: #eee;
-      font-size: 10px;
-      padding: 0px 8px;
-    }
-    .separator {
-      width: 100%;
-      height: 1px;
-      background-color: #eeeeee;
-    }
-    #sender {
-      display: flex;
-      flex-direction: row;
-      margin: 15px 0;
-      width: 90vw;
-    }
-    #sender-avatar {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background-color: lightblue;
-      color: #ffffff;
-      font-weight: 100;
-      font-size: 18px;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      flex-shrink: 0;
-      margin-right: 10px;
-    }
-    #sender-info {
-      display: block;
-      max-width: calc(100vw - 140px);
-      flex-grow: 1;
-      line-height: 20px;
-    }
-    #sender-email {
-      display: inline-block;
-      width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-size: 15px;
-    }
-    #sender-to {
-      font-size: 14px;
-      color: #999999;
-    }
-    #sender-date {
-      font-size: 14px;
-      color: #999999;
-    }
-    #sender-show-details {
-      font-size: 14px;
-      color: #4286f4;
-    }
-    #sender-actions {
-      margin-left: auto;
-      display: flex;
-      flex-direction: row;
-      color: #333333;
-      width: 50px;
-      justify-content: space-evenly;
-      flex-shrink: 0;
-    }
-    #sender-actions > i {
-      font-size: 20px !important;
-    }
-    #mail {
-      font-size: 11px;
-    }
-    img {
-      width: 100%;
-    }
-    body {
-      display: flex;
-      min-height: 100vh;
-      flex-direction: column;
-    }
-    main {
-      flex: 1 0 auto;
-    }
-    .actionbutton {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      color: #666666;
-    }
-  </style>
 </head>
 <body>
   <header>
@@ -136,7 +37,13 @@
         <span id="sender-avatar">B</span>
         <div id="sender-info">
           <span id="sender-email">Badanie.Satysfakcji@ankieta.mcdonalds.pl</span><br />
-          <span id="sender-to">do mcd</span><br />
+          <script>
+            function changeMail () {
+              const name = prompt("Podaj nowego odbiorcę:")
+              document.querySelector('#sender-to').textContent = `do ${name}`
+            }
+          </script>
+          <span id="sender-to" onclick="changeMail()">do mcd</span><br />
           <span id="sender-date">Dzisiaj</span>&nbsp;<span id="sender-show-details">Pokaż szczegóły</span>
         </div>
         <div id="sender-actions">
@@ -178,21 +85,6 @@
       </div>
     </div>
   </footer>
-  <script>
-    document.querySelector('#back').addEventListener('click', e => {
-      // https://developers.google.com/web/fundamentals/native-hardware/fullscreen/
-      const doc = window.document;
-      const docEl = doc.documentElement;
-
-      const requestFullScreen = docEl.requestFullscreen || docEl.mozRequestFullScreen || docEl.webkitRequestFullScreen || docEl.msRequestFullscreen;
-      const cancelFullScreen = doc.exitFullscreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen;
-
-      if(!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
-        requestFullScreen.call(docEl);
-      } else {
-        cancelFullScreen.call(doc);
-      }
-    })
-  </script>
+  <script src="/fullscreen.js"></script>
 </body>
 </html>
