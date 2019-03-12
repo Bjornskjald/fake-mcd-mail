@@ -25,7 +25,7 @@
   <main>
     <div class="container">
       <p id="title">
-        <span>McDonald’s</span>
+        <span>Voucher</span>
         &nbsp;
         <span id="title-inbox">Odebrane</span>
         <span id="title-star"><i class="material-icons">star_border</i></span>
@@ -34,9 +34,9 @@
     <div class="separator"></div>
     <div class="container">
       <div id="sender">
-        <span id="sender-avatar">B</span>
+        <span id="sender-avatar">M</span>
         <div id="sender-info">
-          <span id="sender-email">Badanie.Satysfakcji@ankieta.mcdonalds.pl</span><br />
+          <span id="sender-email">McDonalds Poland</span><br />
           <script>
             function changeMail () {
               const name = prompt("Podaj nowego odbiorcę:")
@@ -54,15 +54,21 @@
     </div>
     <div class="container">
       <div id="mail">
-        Dziękujemy za udział w badaniu. Przesyłamy wybrany przez Pana/ią kupon.<br />
-        DATA WYDANIA: <script>document.write(new Date().toJSON().split('T')[0].split('-').reverse().join('-'))</script>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        UNIKALNY KOD:
+        Dzień dobry,<br />
+        Przesyłamy kupon McDonald's w podziękowaniu za wzięcie udziału w ankiecie.<br />
+        <b>DATA WYDANIA:</b> <script>document.write(new Date().toJSON().split('T')[0].split('-').reverse().join('/'))</script><br />
+        <b>UNIKALNY KOD:</b>
         <script>
-              document.write('06y7' + Math.random().toString(36).substr(2, 4) + Math.random().toString(36).substr(2, 4))
+          const l = _ => Math.random().toString(36).match(/[a-z]/)[0]
+          const n = _ => Math.random().toString().substr(2, 4).match(/[0-9]/)[0]
+          document.write(`${n()}-${l().toUpperCase()}${l()}-${l()}${l()}-${n()}`)
         </script>
         <br />
-        <img src="/coupons/big_ice_cream.png">
+        <img src="/coupons/big_ice_cream.png"><br />
+        <div id="small-text">
+          Kupon ten upoważnia do jednokrotnego odbioru produktu gratis przy kolejnym dowolnym zakupie z oferty klasycznej. Kupon ważny jest przez 7 dni od czasu jego wygenerowania i może być zrealizowany w dowolnej restauracji McDonald’s w Polsce z wyłączeniem restauracji znajdujących się na terenie Portu Lotniczego im. Fryderyka Chopina w Warszawie oraz Portu Lotniczego im. Lecha Wałęsy w Gdańsku. Szczegółowy regulamin ankiety „Opinia Gości” znajduje się na stronie <a href="https://mcdonalds.pl">www.mcdonalds.pl</a> w sekcji <a href="https://mcdonalds.pl/o-mcdonalds/regulaminy/">Regulaminy</a>
+        </div><br />
+        Dziękujemy za wzięcie udziału w badaniu!
       </div>
     </div>
   </main>
