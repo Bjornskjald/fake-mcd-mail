@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cheeswburger</title>
+  <link rel="stylesheet" href="/materialize.min.css">
+  <link rel="stylesheet" href="/style.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <nav class="red">
+      <a href="#" style="margin-left: 10px;" class="brand-logo left" id="back"><i class="material-icons">arrow_back</i></a>
+      <ul class="right">
+        <li><a href="#"><i class="material-icons">archive</i></a></li>
+        <li><a href="#"><i class="material-icons">delete</i></a></li>
+        <li><a href="#"><i class="material-icons">email</i></a></li>
+        <li><a href="#" style="padding-left: 0px;"><i class="material-icons">more_vert</i></a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    <div class="container">
+      <p id="title">
+        <span>Voucher</span>
+        &nbsp;
+        <span id="title-inbox">Odebrane</span>
+        <span id="title-star"><i class="material-icons">star_border</i></span>
+      </p>
+    </div>
+    <div class="separator"></div>
+    <div class="container">
+      <div id="sender">
+        <span id="sender-avatar">M</span>
+        <div id="sender-info">
+          <span id="sender-email">McDonalds Poland</span><br />
+          <script>
+            function changeMail () {
+              const name = prompt("Podaj nowego odbiorcę:")
+              document.querySelector('#sender-to').textContent = `do ${name}`
+            }
+          </script>
+          <span id="sender-to" onclick="changeMail()">do mcd</span><br />
+          <span id="sender-date">Dzisiaj</span>&nbsp;<span id="sender-show-details">Pokaż szczegóły</span>
+        </div>
+        <div id="sender-actions">
+          <i class="material-icons">reply</i>
+          <i class="material-icons">more_vert</i>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div id="mail">
+        Dzień dobry,<br />
+        Przesyłamy kupon McDonald's w podziękowaniu za wzięcie udziału w ankiecie.<br />
+        <b>DATA WYDANIA:</b> <script>document.write(new Date().toJSON().split('T')[0].split('-').reverse().join('/'))</script><br />
+        <b>UNIKALNY KOD:</b>
+        <script>
+          const l = _ => Math.random().toString(36).match(/[a-z]/)[0]
+          const n = _ => Math.random().toString().substr(2, 4).match(/[0-9]/)[0]
+          document.write(`${n()}-${l().toUpperCase()}${l()}-${l()}${l()}-${n()}`)
+        </script>
+        <br />
+        <img src="/coupons/cheeseburger.png"><br />
+        <div id="small-text">
+          Kupon ten upoważnia do jednokrotnego odbioru produktu gratis przy kolejnym dowolnym zakupie z oferty klasycznej. Kupon ważny jest przez 7 dni od czasu jego wygenerowania i może być zrealizowany w dowolnej restauracji McDonald’s w Polsce z wyłączeniem restauracji znajdujących się na terenie Portu Lotniczego im. Fryderyka Chopina w Warszawie oraz Portu Lotniczego im. Lecha Wałęsy w Gdańsku. Szczegółowy regulamin ankiety „Opinia Gości” znajduje się na stronie <a href="https://mcdonalds.pl">www.mcdonalds.pl</a> w sekcji <a href="https://mcdonalds.pl/o-mcdonalds/regulaminy/">Regulaminy</a>
+        </div><br />
+        Dziękujemy za wzięcie udziału w badaniu!
+      </div>
+    </div>
+  </main>
+  <footer class="page-footer white">
+    <div class="container">
+      <div class="row">
+        <div class="col s4 actionbutton">
+          <i class="material-icons">reply</i>
+          Odpowiedz
+        </div>
+        <div class="col s4 actionbutton">
+          <i class="material-icons">reply_all</i>
+          Odpowiedz<br />
+          wszystkim
+        </div>
+        <div class="col s4 actionbutton">
+          <i class="material-icons">forward</i>
+          Przekaż
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="/fullscreen.js"></script>
+</body>
+</html>
