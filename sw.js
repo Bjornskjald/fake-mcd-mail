@@ -1,5 +1,5 @@
 /* globals self caches fetch */
-const version = '1.1.0'
+const version = '1.2.0'
 const cacheName = `mcdfree-${version}`
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -8,8 +8,10 @@ self.addEventListener('install', e => {
         `/`,
         `/index.html`,
         `/hamburger.html`,
+        `/cheeseburger.html`,
         `/ice_cream.html`,
         `/coupons/hamburger.png`,
+        `/coupons/cheeseburger.png`,
         `/coupons/big_ice_cream.png`,
         `/materialize.min.css`,
         `/pwacompat.min.js`
