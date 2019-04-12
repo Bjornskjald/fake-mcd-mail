@@ -5,21 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>hamburger</title>
-  <link rel="stylesheet" href="/materialize.min.css">
+  <title>ankieta</title>
   <link rel="stylesheet" href="/style.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <header>
-    <nav class="red">
-      <a href="#" style="margin-left: 10px;" class="brand-logo left" id="back"><i class="material-icons">arrow_back</i></a>
-      <ul class="right">
-        <li><a href="#"><i class="material-icons">archive</i></a></li>
-        <li><a href="#"><i class="material-icons">delete</i></a></li>
-        <li><a href="#"><i class="material-icons">email</i></a></li>
-        <li><a href="#" style="padding-left: 0px;"><i class="material-icons">more_vert</i></a></li>
-      </ul>
+    <nav>
+      <i class="material-icons" id="back">arrow_back</i>
+      <aside>
+        <img src="icons/archive.svg">
+        <img src="icons/delete.svg">
+        <img src="icons/email.svg">
+        <img src="icons/more_vert.svg">
+      </aside>
     </nav>
   </header>
   <main>
@@ -28,43 +27,45 @@
         <span>Voucher</span>
         &nbsp;
         <span id="title-inbox">Odebrane</span>
-        <span id="title-star"><i class="material-icons">star_border</i></span>
+        <i class="material-icons" id="title-star" onclick="textContent = textContent === 'star_border' ? 'star' : 'star_border'">star_border</i>
       </p>
     </div>
-    <div class="separator"></div>
     <div class="container">
       <div id="sender">
         <span id="sender-avatar">M</span>
         <div id="sender-info">
-          <span id="sender-email">McDonalds Poland</span><br />
+          <span id="sender-email">McDonalds&nbsp;Poland <span id="sender-date">Dzisiaj</span></span><br />
           <script>
             function changeMail () {
               const name = prompt("Podaj nowego odbiorcę:")
               document.querySelector('#sender-to').textContent = `do ${name}`
             }
           </script>
-          <span id="sender-to" onclick="changeMail()">do mcd</span><br />
-          <span id="sender-date">Dzisiaj</span>&nbsp;<span id="sender-show-details">Pokaż szczegóły</span>
+          <span id="sender-to" onclick="changeMail()">do mnie</span><i class="material-icons" id="sender-more">expand_more</i><br />
         </div>
         <div id="sender-actions">
-          <i class="material-icons">reply</i>
-          <i class="material-icons">more_vert</i>
+          <img class="icon" src="icons/reply.svg">
+          <img class="icon" src="icons/more_vert.svg">
         </div>
       </div>
     </div>
     <div class="container">
       <div id="mail">
-        Dzień dobry,<br />
-        Przesyłamy kupon McDonald's w podziękowaniu za wzięcie udziału w ankiecie.<br />
-        <b>DATA WYDANIA:</b> <script>document.write(new Date().toJSON().split('T')[0].split('-').reverse().join('/'))</script><br />
+        Dzień dobry,<br /><br />
+        Przesyłamy kupon McDonald's w podziękowaniu za wzięcie udziału w ankiecie.<br /><br />
+        <b>DATA WYDANIA:</b> <script>document.write(new Date().toJSON().split('T')[0].split('-').reverse().join('/'))</script><br /><br />
         <b>UNIKALNY KOD:</b>
         <script>
           const l = _ => Math.random().toString(36).match(/[a-z]/)[0]
           const n = _ => Math.random().toString().substr(2, 4).match(/[0-9]/)[0]
           document.write(`${n()}-${l().toUpperCase()}${l()}-${l()}${l()}-${n()}`)
         </script>
-        <br />
-        <img src="/coupons/hamburger.png"><br />
+        <br /><br />
+        <script>
+          let params = new URLSearchParams(window.location.search)
+          document.write(`<img src="/coupons/ankieta/${params.has('type') ? params.get('type') : 'big_ice_cream'}.png">`)
+        </script>
+        <br /><br />
         <div id="small-text">
           Kupon ten upoważnia do jednokrotnego odbioru produktu gratis przy kolejnym dowolnym zakupie z oferty klasycznej. Kupon ważny jest przez 7 dni od czasu jego wygenerowania i może być zrealizowany w dowolnej restauracji McDonald’s w Polsce z wyłączeniem restauracji znajdujących się na terenie Portu Lotniczego im. Fryderyka Chopina w Warszawie oraz Portu Lotniczego im. Lecha Wałęsy w Gdańsku. Szczegółowy regulamin ankiety „Opinia Gości” znajduje się na stronie <a href="https://mcdonalds.pl">www.mcdonalds.pl</a> w sekcji <a href="https://mcdonalds.pl/o-mcdonalds/regulaminy/">Regulaminy</a>
         </div><br />
@@ -72,23 +73,18 @@
       </div>
     </div>
   </main>
-  <footer class="page-footer white">
-    <div class="container">
-      <div class="row">
-        <div class="col s4 actionbutton">
-          <i class="material-icons">reply</i>
-          Odpowiedz
-        </div>
-        <div class="col s4 actionbutton">
-          <i class="material-icons">reply_all</i>
-          Odpowiedz<br />
-          wszystkim
-        </div>
-        <div class="col s4 actionbutton">
-          <i class="material-icons">forward</i>
-          Przekaż
-        </div>
-      </div>
+  <footer>
+    <div>
+      <img class="icon" src="icons/reply.svg">
+      <span>Odpowiedz</span>
+    </div>
+    <div>
+      <img class="icon" src="icons/reply_all.svg">
+      <span>Odpowiedz<br />wszystkim</span>
+    </div>
+    <div>
+      <img class="icon" src="icons/forward.svg">
+      <span>Przekaż dalej</span>
     </div>
   </footer>
   <script src="/fullscreen.js"></script>

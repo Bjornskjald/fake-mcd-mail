@@ -1,3 +1,50 @@
+@font-face {
+  font-family: "Google Sans";
+  src: url("/fonts/GoogleSans-Regular.ttf");
+}
+@font-face {
+  font-family: "Google Sans Bold";
+  /* font-weight didn't work and it does, so... */
+  src: url("/fonts/GoogleSans-Medium.ttf");
+}
+
+body {
+  display: flex;
+  padding: 10px;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family: 'Google Sans';
+  font-weight: normal;
+}
+main {
+  flex: 1 0 auto;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  /* margin: 0.5rem; */
+  margin-bottom: 0;
+  color: #444444;
+}
+nav .dots {
+  margin-left: 8px;
+}
+nav > aside > i,
+nav > aside > img,
+img.icon {
+  margin: 0 6px;
+  width: 24px !important;
+  height: 24px;
+}
+
+.upside-down {
+  -webkit-transform:rotate(-180deg);
+  -moz-transform:rotate(-180deg);
+  -o-transform:rotate(-180deg);
+  transform:rotate(-180deg);
+}
+
 #title {
   margin: 30px 0;
   display: flex;
@@ -7,22 +54,17 @@
 }
 #title-star {
   margin-left: auto;
+  color: #666666;
 }
 #title-inbox {
   background-color: #eee;
   font-size: 10px;
   padding: 0px 8px;
 }
-.separator {
-  width: 100%;
-  height: 1px;
-  background-color: #eeeeee;
-}
 #sender {
   display: flex;
   flex-direction: row;
   margin: 15px 0;
-  width: 90vw;
 }
 #sender-avatar {
   display: flex;
@@ -53,11 +95,17 @@
 }
 #sender-to {
   font-size: 14px;
-  color: #999999;
+  color: #666666;
+}
+#sender-more {
+  font-size: 16px;
+  position: relative;
+  top: 4px;
+  color: #666666;
 }
 #sender-date {
   font-size: 14px;
-  color: #999999;
+  color: #666666;
 }
 #sender-show-details {
   font-size: 14px;
@@ -76,19 +124,15 @@
   font-size: 20px !important;
 }
 #mail {
-  font-size: 11px;
-  line-height: 2em;
+  font-size: 14px;
+  /* line-height: 2em; */
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-weight: normal;
+  color: rgba(0,0,0,0.87);
+  /* font-family: 'Roboto'; */
 }
 img {
   width: 100%;
-}
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-main {
-  flex: 1 0 auto;
 }
 .actionbutton {
   display: flex;
@@ -98,10 +142,33 @@ main {
   color: #666666;
 }
 #small-text {
-  font-size: 9px;
+  font-size: 10px;
   color: #000;
-  line-height: 1em;
+  line-height: 1.2em;
 }
 #small-text > a {
   text-decoration: underline;
+}
+footer {
+  display: flex;
+  flex-direction: row;
+}
+footer > div {
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+  margin: 0 3px;
+  padding: 10px 0;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #666666;
+  font-family: 'Google Sans Bold';
+}
+footer > div > span {
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
 }

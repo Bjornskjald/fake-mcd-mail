@@ -1,5 +1,5 @@
 /* globals self caches fetch */
-const version = '1.2.0'
+const version = '2.0.0'
 const cacheName = `mcdfree-${version}`
 self.addEventListener('install', e => {
   e.waitUntil(
@@ -7,12 +7,12 @@ self.addEventListener('install', e => {
       return cache.addAll([
         `/`,
         `/index.html`,
-        `/hamburger.html`,
-        `/cheeseburger.html`,
-        `/ice_cream.html`,
-        `/coupons/hamburger.png`,
-        `/coupons/cheeseburger.png`,
-        `/coupons/big_ice_cream.png`,
+        `/ankieta.html`,
+        `/fonts/GoogleSans-Medium.ttf`,
+        `/fonts/GoogleSans-Regular.ttf`,
+        `/coupons/ankieta/hamburger.png`,
+        `/coupons/ankieta/cheeseburger.png`,
+        `/coupons/ankieta/big_ice_cream.png`,
         `/materialize.min.css`,
         `/pwacompat.min.js`
       ]).then(() => self.skipWaiting())
