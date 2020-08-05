@@ -1,5 +1,5 @@
 /* globals self caches fetch */
-const version = '2.0.0'
+const version = '2.1.0'
 const cacheName = `mcdfree-${version}`
 self.addEventListener('install', e => {
   e.waitUntil(
